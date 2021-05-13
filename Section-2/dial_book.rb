@@ -12,9 +12,7 @@ dial_book = {
 }
 
 def get_city_names(somehash)
-  somehash.each_key do |city|
-    puts city
-  end
+  puts somehash.keys
 end
 
 
@@ -26,16 +24,21 @@ loop do
   # 2. display existing city names
   get_city_names(dial_book)
 
+  puts "Do you want to lookup an area code base on a city name? (Y/N)"
+  answer = gets.chomp.downcase
+  break if answer != "y"
   # 3. get input from the user on the city name
   key = gets.chomp.downcase
+
+  if dial_book.include?(key)
+    puts
+  else
+    puts "You entered an invalid city name"
+  end
 
   area_code = get_area_code(dial_book, key)
 
   puts area_code
-
-  answer = gets.chomp.downcase
-
-  break if answer != "y"
 
 end
 
