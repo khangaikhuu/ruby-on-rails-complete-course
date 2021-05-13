@@ -8,4 +8,4 @@ users = [
 
 puts "Welcome to the authenticator"
 
-25.times
+25.times { puts "-" }
